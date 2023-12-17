@@ -39,11 +39,12 @@ export class HttpRpcClient {
       const response = await this.userOpJsonRpcProvider.send('eth_estimateUserOperationGas', [hexifiedUserOp, this.entryPointAddress]);
       return response;
     } catch (err) {
-      const body = JSON.parse(err.body);
-      if (body?.error?.code) {
-        throw new ErrorHandler(body.error.message, body.error.code)
-      }
-      throw new Error(err.message);
+      // const body = JSON.parse(err.body);
+      // if (body?.error?.code) {
+      //   throw new ErrorHandler(body.error.message, body.error.code)
+      // }
+      // throw new Error(err.message);
+      return hexifiedUserOp
     }
   }
 

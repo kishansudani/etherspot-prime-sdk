@@ -18,6 +18,10 @@ export class WalletService extends Service {
     this.rpcBundlerUrl = rpcUrl;
     this.chainId = chain;
     this.walletAddress$ = this.wallet$.observeKey('address');
+    this.providerLike = providerLike;
+    this.options = options;
+    this.rpcUrl = options.provider;
+    this.chain = chain;
   }
 
   get wallet(): Wallet {
